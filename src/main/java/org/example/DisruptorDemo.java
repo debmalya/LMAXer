@@ -5,7 +5,9 @@ import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.util.DaemonThreadFactory;
 import org.example.entity.OrderEvent;
 import org.example.entity.OrderEventFactory;
+import org.example.handler.MockPersistenceHandler;
 import org.example.handler.OrderEventHandler;
+import org.example.handler.ValidationHandler;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -21,8 +23,10 @@ public class DisruptorDemo {
                 new com.lmax.disruptor.BlockingWaitStrategy() // wait strategy
         );
 
-        // 2. Connect the handler (consumer)
-        disruptor.handleEventsWith(new OrderEventHandler());
+        // 2. Each handler gets every event – they run in parallel on different threads
+        disruptor.handleEventsWith(new OrderEventHandler(),
+                new MockPersistenceHandler(),
+                new ValidationHandler());
 
         // 3. Start the Disruptor – this starts worker threads
         disruptor.start();
