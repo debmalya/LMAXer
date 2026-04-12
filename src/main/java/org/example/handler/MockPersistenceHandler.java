@@ -3,9 +3,10 @@ package org.example.handler;
 import com.lmax.disruptor.EventHandler;
 import org.example.entity.OrderEvent;
 
-public class OrderEventHandler implements EventHandler<OrderEvent> {
+public class MockPersistenceHandler implements EventHandler<OrderEvent> {
     @Override
     public void onEvent(OrderEvent event, long sequence, boolean endOfBatch) {
-        System.out.printf("[LOG] %s processing %s\n",Thread.currentThread().getName() , event);
+        // Simulate DB insert
+        System.out.printf("[DB] Saved %s\n" , event);
     }
 }
