@@ -10,4 +10,4 @@
 * Wait strategies – BlockingWaitStrategy is simple but slower. For extreme performance, try BusySpinWaitStrategy (only if you know your CPU cores will be dedicated).
 
 ### How to execute
-* Run [Disruptor](./src/main/java/DisruptorDemo.java)
+* Run [Disruptor](./src/main/java/org/example/DisruptorDemo.java)
