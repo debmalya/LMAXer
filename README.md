@@ -8,3 +8,6 @@
 * Event reuse – The same OrderEvent instances are reused across the ring buffer. You must copy data if you need to store it beyond the handler’s lifetime.
 * Single producer – We used ProducerType.SINGLE. For multiple producers, change to ProducerType.MULTI.
 * Wait strategies – BlockingWaitStrategy is simple but slower. For extreme performance, try BusySpinWaitStrategy (only if you know your CPU cores will be dedicated).
+
+### How to execute
+* Run [Disruptor](./src/main/java/DisruptorDemo.java)

@@ -12,7 +12,7 @@ import org.example.handler.OrderWorker;
 import java.util.concurrent.Executors;
 
 public class WorkerPoolDemo {
-    public static void main(String[] args) throws InterruptedException {
+     static void main(String[] args) throws InterruptedException {
         RingBuffer<OrderEvent> ringBuffer = RingBuffer.create(
                 ProducerType.SINGLE,
                 new OrderEventFactory(),
