@@ -11,3 +11,4 @@
 
 ### How to execute
 * Run [Disruptor](./src/main/java/org/example/DisruptorDemo.java)
+* * Run [Disruptor](./src/main/java/org/example/WorkerPoolDemo.java)
